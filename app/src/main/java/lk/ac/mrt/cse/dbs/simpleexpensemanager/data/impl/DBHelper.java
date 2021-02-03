@@ -10,7 +10,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     static DBHelper instance;
 
-    static final String DATABASE_NAME = "180707A";
+    static final String DATABASE_NAME = "180707A.db";
     static final int DATABASE_VERSION = 2;
 
     //ACCOUNT TABLE
@@ -41,7 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_TABLE_ACCOUNT);
 
         String CREATE_TABLE_TRANSACTION = "CREATE TABLE " + TRANSACTION_TABLE + "(" + TRANSACTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TRANSACTION_DATE + " TEXT, "
-                + TRANSACTION_ACCOUNT_NO + " TEXT NOT NULL UNIQUE, " + EXPENSE_TYPE + " TEXT CHECK( " + EXPENSE_TYPE + " IN ('INCOME','EXPENSE') ), " + AMOUNT + " REAL );";
+                + TRANSACTION_ACCOUNT_NO + " TEXT NOT NULL, " + EXPENSE_TYPE + " TEXT CHECK( " + EXPENSE_TYPE + " IN ('INCOME','EXPENSE') ), " + AMOUNT + " REAL );";
         sqLiteDatabase.execSQL(CREATE_TABLE_TRANSACTION);
     }
 
